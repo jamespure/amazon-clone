@@ -1,8 +1,11 @@
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import { useStateValue } from './../../context/StateProvider';
 
 const Header = () => {
+  const [{cart, user}, dispatch] = useStateValue();
+
   return (
     <header className="header">
       <img
@@ -29,7 +32,7 @@ const Header = () => {
         </div>
         <div className="header__optionCart">
           <ShoppingBasketIcon />
-          <span className="header__optionLineTwo cartCount">0</span>
+          <span className="header__optionLineTwo cartCount">{cart?.length}</span>
         </div>
       </nav>
     </header>
