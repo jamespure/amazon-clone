@@ -1,0 +1,11 @@
+.cart__optionCart {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 20px;
+}
+
+.cart__cartCount {
+  margin-left: 10px;
+  margin-right: 10px;
+}

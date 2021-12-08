@@ -44,17 +44,6 @@
   font-weight: 800;
 }
 
-.header__optionCart {
-  display: flex;
-  align-items: center;
-  color: white;
-}
-
-.header__cartCount {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .header__nav {
   display: flex;
   justify-content: space-evenly;
