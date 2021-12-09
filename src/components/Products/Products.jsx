@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { Product } from "..";
 import { addToCart } from '../../redux/actions/cartActions';
 
-const Products = ({ fetchProducts, products, addToCart, cart }) => {
+const Products = ({ fetchProducts, products, cart, addToCart }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
 
-  console.log(cart)
+  console.log(products)
   return (
     <>
       {products.slice(0, 4).map((product) => (
@@ -27,9 +27,9 @@ const Products = ({ fetchProducts, products, addToCart, cart }) => {
   );
 };
 
-const mapPropsToState = (state) => ({
+const mapStateToProps = (state) => ({
   products: state.products.items,
-  cart: state.cart.items
+  cart: state.cart.items,
 });
 
-export default connect(mapPropsToState, { fetchProducts, addToCart })(Products);
+export default connect(mapStateToProps, { fetchProducts, addToCart })(Products);

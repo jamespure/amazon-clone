@@ -2,8 +2,9 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { Cart } from "../index.js";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Header = () => {
+const Header = ({user}) => {
   return (
     <header className="header">
       <img
@@ -16,10 +17,14 @@ const Header = () => {
         <SearchIcon className="header__searchIcon" />
       </div>
       <nav className="header__nav">
-        <Link to="/login">
+        <Link to={!user && "/login"}>
           <div className="header__option">
-            <span className="header__optionLineOne">Hello,</span>
-            <span className="header__optionLineTwo">Sign in</span>
+            <span className="header__optionLineOne">
+              Hello, {!user ? "Guest" : user.displayName}
+            </span>
+            <span className="header__optionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
           </div>
         </Link>
         <div className="header__option">
@@ -36,4 +41,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.user.items
+})
+
+export default connect(mapStateToProps)(Header);

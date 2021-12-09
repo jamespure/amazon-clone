@@ -10,6 +10,6 @@ export const fetchProducts = () => async (dispatch) => {
       payload: products,
     });
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 };
